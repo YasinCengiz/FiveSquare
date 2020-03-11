@@ -16,7 +16,6 @@ class AddPlaceVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBOutlet weak var placeImageView: UIImageView!
     
     var placeModel = PlaceModel.sharedInstance
-    var registerVC = RegisterVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +44,9 @@ class AddPlaceVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 placeModel.placeAtmosphere = placeAthmosphereText.text!
                 placeModel.placeImage = chosenImage
             }
-            performSegue(withIdentifier: "toMapVC", sender: nil)
-        } else {
-            registerVC.pushAlert(title: "Error!", message: "Fields must not be empty!")
         }
         
-
+        performSegue(withIdentifier: "toMapVC", sender: nil)
         
     }
     
